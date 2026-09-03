@@ -9,6 +9,9 @@ import adOne from '/src/assets/adOne.jpg'
 import adTwo from '/src/assets/adTwo.png'
 import adThree from '/src/assets/adThree.jpg'
 import longAd from '/src/assets/longAd.png'
+import Badge from '@/components/Common/Badge';
+import NewArrival from '@/layouts/NewArrival';
+import BestSeller from '@/layouts/BestSeller';
 
 const Home = () => {
   return (
@@ -62,18 +65,27 @@ const Home = () => {
 
 
 {/* New arrivals */}
+<NewArrival/>
 
 
-
+{/*Best Seller */}
+<BestSeller/>
 
 {/* Long Ad  */}
 <Container>
+
+
+
 
 <div className="py-35">
   <Image imageSrc={longAd}/>
 </div>
 
 </Container>
+
+
+{/* New arrivals */}
+<NewArrival/>
 
 
     </>
