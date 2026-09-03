@@ -15,7 +15,7 @@ const Map = () => {
 
                 <div className="relative">
                     {/* <div style={{ width: '100%', height: '400px', overflow: 'hidden' }} className="absolute"> */}
-                    <div className=" w-full h-[572px] overflow-hidden">
+                    <div className=" w-full h-143 overflow-hidden">
 
                         <iframe
                             title="Google Map Embed"

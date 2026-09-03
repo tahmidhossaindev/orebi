@@ -54,8 +54,8 @@ const Footer = () => {
             {/* contact part */}
 
             <div className="font-orebi ">
-              <a href="tel:+8801971698344"><h2 className="font-bold text-[#262626] text-[16px]">+8801971698344</h2></a>
-              <a href="mailto:tahmidhossain345@gmail.com"><h2 className="font-bold text-[#262626] text-[16px] ">tahmidhossain345@gmail.com</h2></a>
+              <a href="tel:+8801971698344"><h2 className="font-bold text-[#262626] text-[16px]">+8801XXXXXXX</h2></a>
+              <a href="mailto:tahmidhossain345@gmail.com"><h2 className="font-bold text-[#262626] text-[16px] ">se9k@gmail.com</h2></a>
               <p className='mt-5'>575 Crescent Ave. Quakertown, PA 18951</p>
 
             </div>
@@ -79,7 +79,7 @@ const Footer = () => {
               <Link to={"https://www.instagram.com/"} target="_blank"><FaInstagram className="text-[24px]  text-[#262626] hover:text-[27px] duration-150 ease-in-out" /></Link>
               <Link to={"https://se9k.framer.website/"} target="_blank"><MdOutlineWorkOutline className="text-[24px] text-[#262626] hover:text-[27px] duration-150 ease-in-out" /> </Link>
             </div>
-            <p className="text-[14px] text-[#6D6D6D] font-orebi ">2020 Orebi Minimal eCommerce Figma Template by Adveits, Developed by Tahmid Hossain</p>
+            <p className="text-[14px] text-[#6D6D6D] font-orebi ">2020 Orebi Minimal eCommerce Figma Template by Adveits, Developed by Se9k</p>
           </Flex>
 
         </Container>
