@@ -12,6 +12,7 @@ import longAd from '/src/assets/longAd.png'
 import Badge from '@/components/Common/Badge';
 import NewArrival from '@/layouts/NewArrival';
 import BestSeller from '@/layouts/BestSeller';
+import SpecialOffer from '@/layouts/SpecialOffer';
 
 const Home = () => {
   return (
@@ -48,7 +49,7 @@ const Home = () => {
 {/* sales part  */}
   
 
-<Container className={"pt-35"}>
+<Container className={"pt-35.5 pb-35"}>
   <Flex className={"gap-x-10"}>
 
     <div className="">
@@ -65,11 +66,12 @@ const Home = () => {
 
 
 {/* New arrivals */}
-<NewArrival/>
+<NewArrival className={"pb-34"}/>
 
 
 {/*Best Seller */}
-<BestSeller/>
+<BestSeller className={"pb-34"}/>
+
 
 {/* Long Ad  */}
 <Container>
@@ -77,15 +79,15 @@ const Home = () => {
 
 
 
-<div className="py-35">
+<div className="pb-35">
   <Image imageSrc={longAd}/>
 </div>
 
 </Container>
 
 
-{/* New arrivals */}
-<NewArrival/>
+{/* Special Offers */}
+<SpecialOffer className={"pb-34"}/>
 
 
     </>
