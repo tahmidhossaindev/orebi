@@ -1,7 +1,7 @@
 import React from 'react'
 import Container from '../components/Container'
 import Flex from '../components/Flex'
-import { Link, Links } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { FaFacebookF, FaLinkedinIn, FaInstagram } from "react-icons/fa6";
 import { MdOutlineWorkOutline } from "react-icons/md";
 import Image from '../components/Common/Image';
@@ -31,11 +31,11 @@ const Footer = () => {
               <div className="sectionTwo">
                 <h3 className="mb-5 text-[#262626] text-[16px] font-bold">SHOP</h3>
                 <ul className="space-y-2 font-orebi">
-                  <li className="text-[14px] text-[#6D6D6D] hover:text-black hover:text-[16px] duration-150 ease-in-out"><Link to={"/shop"}>Category 1</Link></li>
-                  <li className="text-[14px] text-[#6D6D6D] hover:text-black hover:text-[16px] duration-150 ease-in-out "><Link to={"/shop"}>Category 2</Link></li>
-                  <li className="text-[14px] text-[#6D6D6D] hover:text-black hover:text-[16px] duration-150 ease-in-out "><Link to={"/shop"}>Category 3</Link></li>
-                  <li className="text-[14px] text-[#6D6D6D] hover:text-black hover:text-[16px] duration-150 ease-in-out"><Link to={"/shop"}>Category 4</Link></li>
-                  <li className="text-[14px] text-[#6D6D6D] hover:text-black hover:text-[16px] duration-150 ease-in-out"><Link to={"/shop"}>Category 5</Link></li>
+                  <li className="text-[14px] text-[#6D6D6D] hover:text-black hover:text-[16px] duration-150 ease-in-out"><Link to={"/shop?category=beauty"}>Beauty</Link></li>
+                  <li className="text-[14px] text-[#6D6D6D] hover:text-black hover:text-[16px] duration-150 ease-in-out"><Link to={"/shop?category=fragrances"}>Fragrances</Link></li>
+                  <li className="text-[14px] text-[#6D6D6D] hover:text-black hover:text-[16px] duration-150 ease-in-out"><Link to={"/shop?category=furniture"}>Furniture</Link></li>
+                  <li className="text-[14px] text-[#6D6D6D] hover:text-black hover:text-[16px] duration-150 ease-in-out"><Link to={"/shop?category=groceries"}>Groceries</Link></li>
+                  <li className="text-[14px] text-[#6D6D6D] hover:text-black hover:text-[16px] duration-150 ease-in-out"><Link to={"/shop?category=home-decoration"}>Home Decoration</Link></li>
                 </ul>
               </div>
 

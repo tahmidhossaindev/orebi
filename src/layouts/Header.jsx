@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import Container from '../components/Container'
 import Flex from '../components/Flex'
 import { Link } from 'react-router-dom'
@@ -8,21 +8,33 @@ import { FaBars } from "react-icons/fa6";
 import { FaUserAlt } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
 import { MdArrowDropDownCircle } from "react-icons/md";
+import { useCartStore } from '../store/useCartStore'
 
 
 
 const Header = () => {
+    const [isOpen, setIsOpen] = useState(false)
+    const categoryRef = useRef(null)
+    const cartCount = useCartStore((state) =>
+        state.cart.reduce((total, item) => total + item.quantity, 0)
+    )
 
-    let dropRef = useRef(null)
-
-    let handleDrop = ()=>{
-        if (dropRef.current.style.display == 'block') {
-            dropRef.current.style.display = 'none'
-        } else {
-            dropRef.current.style.display = 'block'
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (categoryRef.current && !categoryRef.current.contains(event.target)) {
+                setIsOpen(false)
+            }
         }
-    }
 
+        document.addEventListener('mousedown', handleClickOutside)
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside)
+        }
+    }, [])
+
+    const handleToggle = () => {
+        setIsOpen((prev) => !prev)
+    }
 
     return (
         <>
@@ -59,92 +71,75 @@ const Header = () => {
                     <div className="py-6">
                         <Flex className={"items-center justify-between"}>
 
+                            {/* Shop by Category Wrapper */}
+                            <div className="relative" ref={categoryRef}>
+                                {/* Trigger Button */}
+                                <div
+                                    className="flex items-center gap-x-2 font-orebi cursor-pointer select-none"
+                                    onClick={handleToggle}
+                                >
+                                    <FaBars className="text-[14px]  hover:text-[18px] duration-200 ease-in-out" />
+                                    <h1 className="text-[14px] font-bold text-[#262626]  hover:text-[18px] duration-200 ease-in-out">Shop by Category</h1>
+                                </div>
 
-                            {/* shop by category 
-                            <div className="flex items-center gap-x-2 font-orebi hover:font-bold duration-200 ease-in-out" onClick={handleDrop}>
-                                <FaBars />
-                                <h1>Shop By Category</h1>
+                                {/* Dropdown Menu */}
+                                {isOpen && (
+                                    <div className="absolute top-full left-0 mt-3 w-60 bg-white border border-[#F0F0F0] shadow-xl z-50">
+                                        <ul className="divide-y divide-[#F0F0F0] text-[14px] text-[#262626] font-orebi">
+                                            <li>
+                                                <Link to="/shop" className="block px-6 py-3.5 hover:font-bold hover:pl-8 transition-all duration-200">
+                                                    Desktop
+                                                </Link>
+                                            </li>
+                                            <li>
+                                                <Link to="/shop" className="block px-6 py-3.5 hover:font-bold hover:pl-8 transition-all duration-200">
+                                                    Laptop
+                                                </Link>
+                                            </li>
+                                            <li>
+                                                <Link to="/shop" className="block px-6 py-3.5 hover:font-bold hover:pl-8 transition-all duration-200">
+                                                    Component
+                                                </Link>
+                                            </li>
+                                            <li>
+                                                <Link to="/shop" className="block px-6 py-3.5 hover:font-bold hover:pl-8 transition-all duration-200">
+                                                    Power
+                                                </Link>
+                                            </li>
+                                            <li>
+                                                <Link to="/shop" className="block px-6 py-3.5 hover:font-bold hover:pl-8 transition-all duration-200">
+                                                    Phone
+                                                </Link>
+                                            </li>
+                                            <li>
+                                                <Link to="/shop" className="block px-6 py-3.5 hover:font-bold hover:pl-8 transition-all duration-200">
+                                                    Office Equipment
+                                                </Link>
+                                            </li>
+                                            <li>
+                                                <Link to="/shop" className="block px-6 py-3.5 hover:font-bold hover:pl-8 transition-all duration-200">
+                                                    Security
+                                                </Link>
+                                            </li>
+                                            <li>
+                                                <Link to="/shop" className="block px-6 py-3.5 hover:font-bold hover:pl-8 transition-all duration-200">
+                                                    Network
+                                                </Link>
+                                            </li>
+                                            <li>
+                                                <Link to="/shop" className="block px-6 py-3.5 hover:font-bold hover:pl-8 transition-all duration-200">
+                                                    Software
+                                                </Link>
+                                            </li>
+                                            <li>
+                                                <Link to="/shop" className="block px-6 py-3.5 hover:font-bold hover:pl-8 transition-all duration-200">
+                                                    Server & Storage
+                                                </Link>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                )}
                             </div>
-
-                            <div className="absolute bg-white bottom-[-50%] p-4  hidden" ref={dropRef}>
-                                <ul>
-                                    <li><Link to={"/shop"}><h3>hi</h3></Link></li>
-                                    <li><Link to={"/shop"}><h3>hi</h3></Link></li>
-                                    <li><Link to={"/shop"}><h3>hi</h3></Link></li>
-                                    <li><Link to={"/shop"}><h3>hi</h3></Link></li>
-                                </ul>
-                            </div> */}
-
-{/* Shop by Category Wrapper */}
-        <div className="relative">
-          {/* Trigger Button */}
-          <div
-            className="flex items-center gap-x-2 font-orebi cursor-pointer select-none"
-            onClick={handleDrop}
-          >
-            <FaBars className="text-[14px]" />
-            <h1 className="text-[14px] font-bold text-[#262626]">Shop by Category</h1>
-          </div>
-
-          {/* Dropdown Menu */}
-          <div
-            className="absolute top-full left-0 mt-3 w-60 bg-white border border-[#F0F0F0] shadow-xl z-50 hidden"
-            ref={dropRef}
-          >
-            <ul className="divide-y divide-[#F0F0F0] text-[14px] text-[#262626] font-orebi">
-              <li>
-                <Link to="/shop" className="block px-6 py-3.5 hover:font-bold hover:pl-8 transition-all duration-200">
-                  Desktop
-                </Link>
-              </li>
-              <li>
-                <Link to="/shop" className="block px-6 py-3.5 hover:font-bold hover:pl-8 transition-all duration-200">
-                  Laptop
-                </Link>
-              </li>
-              <li>
-                <Link to="/shop" className="block px-6 py-3.5 hover:font-bold hover:pl-8 transition-all duration-200">
-                  Component
-                </Link>
-              </li>
-              <li>
-                <Link to="/shop" className="block px-6 py-3.5 hover:font-bold hover:pl-8 transition-all duration-200">
-                  Power
-                </Link>
-              </li>
-              <li>
-                <Link to="/shop" className="block px-6 py-3.5 hover:font-bold hover:pl-8 transition-all duration-200">
-                  Phone
-                </Link>
-              </li>
-              <li>
-                <Link to="/shop" className="block px-6 py-3.5 hover:font-bold hover:pl-8 transition-all duration-200">
-                  Office Equipment
-                </Link>
-              </li>
-              <li>
-                <Link to="/shop" className="block px-6 py-3.5 hover:font-bold hover:pl-8 transition-all duration-200">
-                  Security
-                </Link>
-              </li>
-              <li>
-                <Link to="/shop" className="block px-6 py-3.5 hover:font-bold hover:pl-8 transition-all duration-200">
-                  Network
-                </Link>
-              </li>
-              <li>
-                <Link to="/shop" className="block px-6 py-3.5 hover:font-bold hover:pl-8 transition-all duration-200">
-                  Software
-                </Link>
-              </li>
-                  <li>
-                <Link to="/shop" className="block px-6 py-3.5 hover:font-bold hover:pl-8 transition-all duration-200">
-                  Server & Storage
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </div>
 
 
 
@@ -155,13 +150,20 @@ const Header = () => {
                                 <input placeholder="Search Products" className="text-[14px] text-[#C4C4C4] font-orebi bg-white px-5 w-full h-12.5 outline-[#C4C4C4] focus:[#262626]" type="text" />
                             </div>
 
-                            <div className="flex gap-x-5">
-                                <div className="flex gap-x-1">
+                            <div className="flex gap-x-5 items-center">
+                                <div className="flex gap-x-1 items-center">
                                     <FaUserAlt className='text-[#262626] text-[16px] ' />
                                     <MdArrowDropDownCircle className='text-[#262626] text-[16px]' />
                                 </div>
 
-                                <FaShoppingCart className='text-[#262626] text-[16px]' />
+                                <Link to="/cart" className="relative flex items-center cursor-pointer p-1" aria-label="View Shopping Cart">
+                                    <FaShoppingCart className='text-[#262626] text-[18px]' />
+                                    {cartCount > 0 && (
+                                        <span className="absolute -top-1.5 -right-2 bg-[#262626] text-white text-[10px] font-bold font-orebi rounded-full w-4 h-4 flex items-center justify-center">
+                                            {cartCount}
+                                        </span>
+                                    )}
+                                </Link>
 
                             </div>
 
