@@ -153,9 +153,8 @@ const Checkout = () => {
             </div>
             {couponMessage && (
               <p
-                className={`mt-2 text-[13px] ${
-                  discountPercent > 0 ? 'text-emerald-600' : 'text-red-500'
-                }`}
+                className={`mt-2 text-[13px] ${discountPercent > 0 ? 'text-emerald-600' : 'text-red-500'
+                  }`}
               >
                 {couponMessage}
               </p>

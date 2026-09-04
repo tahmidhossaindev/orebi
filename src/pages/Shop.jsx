@@ -288,11 +288,10 @@ const Shop = () => {
                   <button
                     onClick={() => handlePageChange(currentPage - 1)}
                     disabled={currentPage === 1}
-                    className={`px-3 py-2 text-[14px] border ${
-                      currentPage === 1
+                    className={`px-3 py-2 text-[14px] border ${currentPage === 1
                         ? 'border-[#F0F0F0] text-[#C4C4C4] cursor-not-allowed'
                         : 'border-[#F0F0F0] text-[#767676] hover:text-[#262626] cursor-pointer'
-                    }`}
+                      }`}
                   >
                     Prev
                   </button>
@@ -301,11 +300,10 @@ const Shop = () => {
                     <button
                       key={page}
                       onClick={() => handlePageChange(page)}
-                      className={`w-9 h-9 flex items-center justify-center text-[14px] border transition-colors cursor-pointer ${
-                        currentPage === page
+                      className={`w-9 h-9 flex items-center justify-center text-[14px] border transition-colors cursor-pointer ${currentPage === page
                           ? 'bg-[#262626] text-white border-[#262626] font-bold'
                           : 'bg-white text-[#767676] border-[#F0F0F0] hover:text-[#262626]'
-                      }`}
+                        }`}
                     >
                       {page}
                     </button>
@@ -314,11 +312,10 @@ const Shop = () => {
                   <button
                     onClick={() => handlePageChange(currentPage + 1)}
                     disabled={currentPage === totalPages}
-                    className={`px-3 py-2 text-[14px] border ${
-                      currentPage === totalPages
+                    className={`px-3 py-2 text-[14px] border ${currentPage === totalPages
                         ? 'border-[#F0F0F0] text-[#C4C4C4] cursor-not-allowed'
                         : 'border-[#F0F0F0] text-[#767676] hover:text-[#262626] cursor-pointer'
-                    }`}
+                      }`}
                   >
                     Next
                   </button>

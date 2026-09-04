@@ -224,9 +224,8 @@ const ProductDetails = () => {
                 <button
                   key={color.name}
                   onClick={() => setSelectedColor(color.name)}
-                  className={`w-7 h-7 rounded-full transition-transform cursor-pointer flex items-center justify-center ${
-                    selectedColor === color.name ? 'ring-2 ring-[#262626] ring-offset-2 scale-110' : ''
-                  }`}
+                  className={`w-7 h-7 rounded-full transition-transform cursor-pointer flex items-center justify-center ${selectedColor === color.name ? 'ring-2 ring-[#262626] ring-offset-2 scale-110' : ''
+                    }`}
                   style={{ backgroundColor: color.hex }}
                   title={color.name}
                   aria-label={color.name}
@@ -299,9 +298,8 @@ const ProductDetails = () => {
 
           <button
             onClick={() => setIsWishlisted((prev) => !prev)}
-            className={`border border-[#F0F0F0] px-6 py-4 font-bold text-[14px] flex items-center gap-x-2 transition-colors cursor-pointer ${
-              isWishlisted ? 'text-red-500 border-red-200 bg-red-50/40' : 'text-[#262626] hover:bg-neutral-50'
-            }`}
+            className={`border border-[#F0F0F0] px-6 py-4 font-bold text-[14px] flex items-center gap-x-2 transition-colors cursor-pointer ${isWishlisted ? 'text-red-500 border-red-200 bg-red-50/40' : 'text-[#262626] hover:bg-neutral-50'
+              }`}
           >
             <FaHeart className={isWishlisted ? 'text-red-500' : 'text-[#767676]'} />
             <span>{isWishlisted ? 'Wishlisted' : 'Add to Wishlist'}</span>
@@ -352,17 +350,15 @@ const ProductDetails = () => {
         <div className="flex items-center gap-x-8 mb-8 pb-4 border-b border-[#F0F0F0]">
           <button
             onClick={() => setActiveTab('description')}
-            className={`text-[18px] md:text-[20px] font-bold cursor-pointer transition-colors ${
-              activeTab === 'description' ? 'text-[#262626] border-b-2 border-[#262626] pb-4 -mb-4' : 'text-[#767676] hover:text-[#262626]'
-            }`}
+            className={`text-[18px] md:text-[20px] font-bold cursor-pointer transition-colors ${activeTab === 'description' ? 'text-[#262626] border-b-2 border-[#262626] pb-4 -mb-4' : 'text-[#767676] hover:text-[#262626]'
+              }`}
           >
             Description
           </button>
           <button
             onClick={() => setActiveTab('reviews')}
-            className={`text-[18px] md:text-[20px] font-bold cursor-pointer transition-colors ${
-              activeTab === 'reviews' ? 'text-[#262626] border-b-2 border-[#262626] pb-4 -mb-4' : 'text-[#767676] hover:text-[#262626]'
-            }`}
+            className={`text-[18px] md:text-[20px] font-bold cursor-pointer transition-colors ${activeTab === 'reviews' ? 'text-[#262626] border-b-2 border-[#262626] pb-4 -mb-4' : 'text-[#767676] hover:text-[#262626]'
+              }`}
           >
             Reviews ({reviews.length})
           </button>

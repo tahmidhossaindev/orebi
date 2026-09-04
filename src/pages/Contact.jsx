@@ -28,7 +28,7 @@ const Contact = () => {
 
             <div className="Message w-150.25 border-b-2 border-[#D8D8D8] mb-7.5">
               <h3 className='font-bold text-[#262626] text-[18px]'>Message</h3>
-            <textarea name="Message" id="" placeholder='Your message here' className='text-[16px] text-[#767676] font-orebi w-full h-17.75 focus:ring-0 focus:outline-none focus-visible:ring-0 focus-visible:outline-none'></textarea>
+              <textarea name="Message" id="" placeholder='Your message here' className='text-[16px] text-[#767676] font-orebi w-full h-17.75 focus:ring-0 focus:outline-none focus-visible:ring-0 focus-visible:outline-none'></textarea>
             </div>
 
             <Button className={"px-25 hover:px-25"}>Post</Button>
