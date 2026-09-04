@@ -5,6 +5,12 @@ import { Link } from 'react-router-dom'
 import Image from '../components/Common/Image'
 import Logo from '/src/assets/logo.png'
 import { FaBars } from "react-icons/fa6";
+import { FaUserAlt } from "react-icons/fa";
+import { FaShoppingCart } from "react-icons/fa";
+import { MdArrowDropDownCircle } from "react-icons/md";
+
+
+
 const Header = () => {
 
 
@@ -45,13 +51,23 @@ const Header = () => {
 
 
                             {/* shop by category  */}
-                            <div className="flex items-center gap-x-2 font-orebi">
+                            <div className="flex items-center gap-x-2 font-orebi hover:font-bold duration-200 ease-in-out ">
                                 <FaBars />
                                 <h1>Shop By Category</h1>
                             </div>
                             {/* search part */}
-                            <div className="search w-150.25">
-                                <input placeholder="Search Products" className="text-[14px] text-[#C4C4C4] font-orebi bg-white px-5 w-full h-10 outline-[#C4C4C4]" type="text" />
+                            <div className="search w-150">
+                                <input placeholder="Search Products" className="text-[14px] text-[#C4C4C4] font-orebi bg-white px-5 w-full h-12.5 outline-[#C4C4C4] focus:[#262626]" type="text" />
+                            </div>
+
+                            <div className="flex gap-x-5">
+                                <div className="flex gap-x-1">
+                                    <FaUserAlt className='text-[#262626] text-[16px] ' />
+                                    <MdArrowDropDownCircle className='text-[#262626] text-[16px]' />
+                                </div>
+
+                                <FaShoppingCart className='text-[#262626] text-[16px]' />
+
                             </div>
 
                         </Flex>
