@@ -16,7 +16,7 @@ const Product = ({productImage, badgeT, productName, productPrice, productCatego
     <Badge badgeText={`${badgeT}`} className={"absolute top-3 left-3"}/>
 
     {/* hover part  */}
-   <div className="absolute hidden bg-white group-hover:block bottom-0 left-0 w-full duration-150 ease-in-out pr-7 py-6 font-orebi">
+   <div className="absolute bg-white  bottom-0 left-0 w-full pr-7 py-6 font-orebi opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-opacity duration-400 ease-in-out">
   
         <div className="flex gap-x-2 justify-end space-y-6">
             <h3 className=' text-[#767676] text-[16px]' >Add to Wishlist</h3>
